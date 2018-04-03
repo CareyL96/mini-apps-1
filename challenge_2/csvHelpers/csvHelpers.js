@@ -4,14 +4,13 @@ exports.formatCsv = (csv) => {
   var formattedCsv = attributes.join(',') + '\n';
 
   var recurse = (person) => {
+    formattedCsv += getAttributeInfo(person, attributes);
     if (person.children === []) {
-      formattedCsv += getAttributeInfo(person, attributes);
       return;
     }
 
     for (let i = 0; i < person.children.length; i++) {
       let child = person.children[i];
-      formattedCsv += getAttributeInfo(person, attributes);
       recurse(child);
     }
   }

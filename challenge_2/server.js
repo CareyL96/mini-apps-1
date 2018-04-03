@@ -15,8 +15,9 @@ app.get('/', function(req, res) {
 
 app.post('/', function(req, res) {
   var csv = req.body.csv;
-  console.log(csv);
-  res.send();
+  var formattedCsv = csvHelpers.formatCsv(csv)
+  console.log(formattedCsv);
+  res.send(formattedCsv);
 });
 
 
