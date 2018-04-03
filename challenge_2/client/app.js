@@ -15,24 +15,32 @@ var app = {
     // sends a post request to server on submit
     $('#send').on('submit', (e) => {
       e.preventDefault();
-      
-      var data = {
-        csv: $('#csvReport').val()
-      }
-      
-      $.ajax({
-        type: 'POST',
-        url: '/',
-        contentType: 'application/json',
-        data: JSON.stringify(data),
-        success: function(response) {
-          console.log('successfully posted');
-        },
-        error: function(response) {
-          console.log('error');
-        }
-      })
+      app.sendData();
     });
   },
+
+  sendData() {
+    var data = {
+      csv: $('#csvReport').val()
+    }
+
+    $.ajax({
+      type: 'POST',
+      url: '/',
+      contentType: 'application/json',
+      data: JSON.stringify(data),
+      success: function(data) {
+        console.log('successfully posted');
+        app.appendData(data)
+      },
+      error: function(err) {
+        console.log('error');
+      }
+    })
+  },
+
+  appendData(data) {
+    $('#formattedData').append(data);
+  }
 }
 
