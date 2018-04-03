@@ -16,8 +16,13 @@ var player2 = {
 
 window.onload = function() {
   generateBoard();
-  
+  addEventListeners();  
+
+}
+
+var addEventListeners = () => {
   document.getElementById('reset').addEventListener('click', resetBoard);
+  document.getElementById('start').addEventListener('click', startGame);
 }
 
 var generateBoard = () => {
@@ -33,11 +38,20 @@ var generateBoard = () => {
   }
 }
 
+var startGame = () => {
+  player1.name = document.getElementById('player1input').value || 'Albert';
+  player2.name = document.getElementById('player2input').value || 'Not Albert';
+
+  document.getElementById('player1name').textContent = `${player1.name}: ${player1.symbol}`;
+  document.getElementById('player2name').textContent = `${player2.name}: ${player2.symbol}`;
+  console.log(player1.name);
+  console.log(player2.name);
+}
+
 var resetBoard = () => {
   board = [[],[],[]];
   gameOver = false;
   turnCount = 0;
-  console.log('reset');
   var squares = document.getElementsByTagName('td');
   
   for (var i = 0; i < squares.length; i++) {
@@ -60,10 +74,6 @@ var placePiece = (e) => {
       currentPlayer = '[x]';
     }
   }
-}
-
-var handleStart = (e) => {
-
 }
 
 var checkIfWinner = () => {
