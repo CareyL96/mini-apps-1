@@ -1,0 +1,21 @@
+{
+  "name": "client",
+  "homepage": "https://github.com/CareyL96/hrsf93-mini-apps-1",
+  "authors": [
+    "Carey Lee <careyl96@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.3.1",
+    "underscore": "^1.8.3"
+  }
+}
