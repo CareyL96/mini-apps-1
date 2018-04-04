@@ -1,7 +1,7 @@
 exports.formatCsv = (csv) => {
   csv = JSON.parse(csv);
   var attributes = getAttributesArray(csv);
-  var formattedCsv = attributes.join(',') + '\n';
+  var formattedCsv = attributes.join(',') + '<br>';
 
   var recurse = (person) => {
     formattedCsv += getAttributeInfo(person, attributes);
@@ -31,5 +31,5 @@ var getAttributeInfo = (csv, attributes) => {
     info.push(csv[attribute])
   });
 
-  return info.join(',') + '\n';
+  return info.join(',') + '<br>';
 }
